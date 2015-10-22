@@ -35,7 +35,7 @@
 -(id)init
 {
     if (self = [super init]) {
-        
+        [self commonInit];
     }
     return self;
 }
