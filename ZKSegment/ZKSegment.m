@@ -200,15 +200,30 @@
 -(void)fiexButtonWidth
 {
     if (ZK_ScreenWidth-_maxWidth>20) {
+        CGFloat bigButtonSumWidth=0;
+        int bigButtonCount=0;
         _maxWidth=ZK_ItemMargin;
         CGFloat width=(ZK_ScreenWidth-(_buttonList.count+1)*ZK_ItemMargin)/_buttonList.count;
         for (int i=0; i<_buttonList.count; i++) {
             UIButton *button=_buttonList[i];
-            button.frame=CGRectMake(_maxWidth, 0, width, self.frame.size.height);
-            if(button==_buttonSelected){
-                _buttonLine.frame=CGRectMake(_maxWidth, self.frame.size.height-2,width,2);
+            if (button.frame.size.width>width) {
+                bigButtonCount++;
+                bigButtonSumWidth+=button.frame.size.width;
             }
-            _maxWidth+=width+ZK_ItemMargin;
+        }
+        width=(ZK_ScreenWidth-(_buttonList.count+1)*ZK_ItemMargin-bigButtonSumWidth)/(_buttonList.count-bigButtonCount);
+        for (int i=0; i<_buttonList.count; i++) {
+            UIButton *button=_buttonList[i];
+            if (button.frame.size.width<width) {
+                button.frame=CGRectMake(_maxWidth, 0, width, self.frame.size.height);
+                _maxWidth+=width+ZK_ItemMargin;
+            }else{
+                button.frame=CGRectMake(_maxWidth, 0, button.frame.size.width, self.frame.size.height);
+                _maxWidth+=button.frame.size.width+ZK_ItemMargin;
+            }
+            if(button==_buttonSelected){
+                _buttonLine.frame=CGRectMake(_maxWidth, self.frame.size.height-2,button.frame.size.width,2);
+            }
         }
         self.contentSize = CGSizeMake(_maxWidth,-4);
     }
@@ -278,7 +293,7 @@
                    buttonX>ZK_ScreenWidth/2.0f-buttonWidth/2.0f&&                       //按钮的坐标大于屏幕中间位置
                    scrollerWidth>buttonX+ZK_ScreenWidth/2.0f+buttonWidth/2.0f           //Scroller的宽度大于按钮移动到中间坐标加上屏幕一半宽度加上按钮一半宽度
                    ){
-                        self.contentOffset = CGPointMake(button.frame.origin.x - ZK_ScreenWidth/2.0f+button.frame.size.width/2.0f, 0);
+                    self.contentOffset = CGPointMake(button.frame.origin.x - ZK_ScreenWidth/2.0f+button.frame.size.width/2.0f, 0);
                 }else if(buttonX<ZK_ScreenWidth/2.0f-buttonWidth/2.0f){                 // 移动到开始
                     self.contentOffset=CGPointMake(0, 0);
                 }else if (scrollerWidth-buttonX<ZK_ScreenWidth/2.0f+buttonWidth/2.0f||                   // Scroller的宽度减去按钮的坐标小于屏幕的一半，移动到最后
