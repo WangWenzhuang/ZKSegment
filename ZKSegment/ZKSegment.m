@@ -222,7 +222,7 @@
                 _maxWidth+=button.frame.size.width+ZK_ItemMargin;
             }
             if(button==_buttonSelected){
-                _buttonLine.frame=CGRectMake(_maxWidth, self.frame.size.height-2,button.frame.size.width,2);
+                _buttonLine.frame=CGRectMake(button.frame.origin.x, self.frame.size.height-2,button.frame.size.width,2);
             }
         }
         self.contentSize = CGSizeMake(_maxWidth,-4);
@@ -260,12 +260,12 @@
     [buttonItem addTarget:self action:@selector(itemClick:) forControlEvents:UIControlEventTouchUpInside];
     _maxWidth+=itemWidth+ZK_ItemMargin;
     [_buttonList addObject:buttonItem];
+    [self addSubview:buttonItem];
     if (!_buttonSelected) {
         [buttonItem setTitleColor:_itemSelectedColor forState:0];
         _buttonLine.frame  = CGRectMake(buttonItem.frame.origin.x, self.frame.size.height-2, buttonItem.frame.size.width, 2);
         [self itemClick:buttonItem];
     }
-    [self addSubview:buttonItem];
 }
 
 -(void)itemClick:(id)sender
