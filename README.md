@@ -1,7 +1,7 @@
 # ZKSegment
 
-[![Build Status](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/WangWenzhuang/ZKSegment)
-
+[![Build Status](https://img.shields.io/badge/build-passing-blue.svg)](https://github.com/WangWenzhuang/ZKSegment)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/WangWenzhuang/ZKSegment)
 ZKSegment 是一个分段选择控件
 
 ## 安装 ##
