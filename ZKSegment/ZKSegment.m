@@ -126,6 +126,9 @@
 
 -(void)zk_itemClickByIndex:(NSInteger)index
 {
+    if (index<0) {
+        return;
+    }
     UIButton *item = (UIButton *)_buttonList[index];
     [self itemClick:item];
 }
