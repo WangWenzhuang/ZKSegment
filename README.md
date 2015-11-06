@@ -1,5 +1,7 @@
 # ZKSegment
 
+[![Build Status](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/WangWenzhuang/ZKSegment)
+
 ZKSegment 是一个分段选择控件
 
 ## 安装 ##
