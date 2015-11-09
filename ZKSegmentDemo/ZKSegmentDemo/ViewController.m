@@ -2,7 +2,7 @@
 //  ViewController.m
 //  ZKSegmentDemo
 //
-//  Created by 王文壮 on 15/10/21.
+//  Created by 王文壮 on 15/11/9.
 //  Copyright © 2015年 WangWenzhuang. All rights reserved.
 //
 
@@ -35,22 +35,22 @@
     
     _ZKSegment.zk_itemClickBlock=^(NSString *itemName , NSInteger itemIndex){
         NSLog(@"click item:%@",itemName);
-        NSLog(@"click itemIndex:%d",itemIndex);
+        NSLog(@"click itemIndex:%ld",itemIndex);
     };
     [_ZKSegment zk_setItems:[[NSArray alloc] initWithObjects:
                              @"菜单1",@"菜单2", nil]];
     
     [self.view addSubview:_ZKSegment];
     
-    UIBarButtonItem *add=[[UIBarButtonItem alloc]initWithTitle:@"+" style:UIBarButtonItemStyleBordered  target:self action:@selector(add:)];
+    UIBarButtonItem *add=[[UIBarButtonItem alloc]initWithTitle:@"+" style:UIBarButtonItemStylePlain  target:self action:@selector(add:)];
     self.navigationItem.rightBarButtonItem=add;
-    UIBarButtonItem *sub=[[UIBarButtonItem alloc]initWithTitle:@"-" style:UIBarButtonItemStyleBordered  target:self action:@selector(sub:)];
+    UIBarButtonItem *sub=[[UIBarButtonItem alloc]initWithTitle:@"-" style:UIBarButtonItemStylePlain  target:self action:@selector(sub:)];
     self.navigationItem.rightBarButtonItems=[[NSArray alloc] initWithObjects:add,sub, nil];
 }
 
 -(void)add:(id)sender
 {
-    [_ZKSegment zk_addItem:[NSString stringWithFormat:@"菜单%d",[_ZKSegment zk_items].count+1]];
+    [_ZKSegment zk_addItem:[NSString stringWithFormat:@"菜单%ld",[_ZKSegment zk_items].count+1]];
 }
 
 -(void)sub:(id)sender

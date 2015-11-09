@@ -7,30 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A0C997DA1BD7604A00EAE85E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C997D91BD7604A00EAE85E /* main.m */; };
-		A0C997DD1BD7604A00EAE85E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C997DC1BD7604A00EAE85E /* AppDelegate.m */; };
-		A0C997E01BD7604A00EAE85E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C997DF1BD7604A00EAE85E /* ViewController.m */; };
-		A0C997E51BD7604A00EAE85E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C997E41BD7604A00EAE85E /* Assets.xcassets */; };
-		A0C997E81BD7604A00EAE85E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C997E61BD7604A00EAE85E /* LaunchScreen.storyboard */; };
-		A0C997F31BD761DE00EAE85E /* ZKSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C997F21BD761DE00EAE85E /* ZKSegment.m */; settings = {ASSET_TAGS = (); }; };
+		A00B4CB41BF05F9900444C02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A00B4CB31BF05F9900444C02 /* main.m */; };
+		A00B4CB71BF05F9900444C02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A00B4CB61BF05F9900444C02 /* AppDelegate.m */; };
+		A00B4CBA1BF05F9900444C02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A00B4CB91BF05F9900444C02 /* ViewController.m */; };
+		A00B4CBF1BF05F9900444C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00B4CBE1BF05F9900444C02 /* Assets.xcassets */; };
+		A00B4CC21BF05F9900444C02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00B4CC01BF05F9900444C02 /* LaunchScreen.storyboard */; };
+		A00B4CCC1BF05FA900444C02 /* ZKSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = A00B4CCB1BF05FA900444C02 /* ZKSegment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A0C997D51BD7604A00EAE85E /* ZKSegmentDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKSegmentDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0C997D91BD7604A00EAE85E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A0C997DB1BD7604A00EAE85E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A0C997DC1BD7604A00EAE85E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A0C997DE1BD7604A00EAE85E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A0C997DF1BD7604A00EAE85E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A0C997E41BD7604A00EAE85E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A0C997E71BD7604A00EAE85E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A0C997E91BD7604A00EAE85E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0C997F11BD761DE00EAE85E /* ZKSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKSegment.h; sourceTree = "<group>"; };
-		A0C997F21BD761DE00EAE85E /* ZKSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKSegment.m; sourceTree = "<group>"; };
+		A00B4CAF1BF05F9900444C02 /* ZKSegmentDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKSegmentDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00B4CB31BF05F9900444C02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A00B4CB51BF05F9900444C02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A00B4CB61BF05F9900444C02 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A00B4CB81BF05F9900444C02 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A00B4CB91BF05F9900444C02 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A00B4CBE1BF05F9900444C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A00B4CC11BF05F9900444C02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A00B4CC31BF05F9900444C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A00B4CCA1BF05FA900444C02 /* ZKSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKSegment.h; sourceTree = "<group>"; };
+		A00B4CCB1BF05FA900444C02 /* ZKSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKSegment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A0C997D21BD7604A00EAE85E /* Frameworks */ = {
+		A00B4CAC1BF05F9900444C02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,51 +40,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A0C997CC1BD7604900EAE85E = {
+		A00B4CA61BF05F9900444C02 = {
 			isa = PBXGroup;
 			children = (
-				A0C997F01BD761DE00EAE85E /* ZKSegment */,
-				A0C997D71BD7604A00EAE85E /* ZKSegmentDemo */,
-				A0C997D61BD7604A00EAE85E /* Products */,
+				A00B4CC91BF05FA900444C02 /* ZKSegment */,
+				A00B4CB11BF05F9900444C02 /* ZKSegmentDemo */,
+				A00B4CB01BF05F9900444C02 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A0C997D61BD7604A00EAE85E /* Products */ = {
+		A00B4CB01BF05F9900444C02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0C997D51BD7604A00EAE85E /* ZKSegmentDemo.app */,
+				A00B4CAF1BF05F9900444C02 /* ZKSegmentDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A0C997D71BD7604A00EAE85E /* ZKSegmentDemo */ = {
+		A00B4CB11BF05F9900444C02 /* ZKSegmentDemo */ = {
 			isa = PBXGroup;
 			children = (
-				A0C997DB1BD7604A00EAE85E /* AppDelegate.h */,
-				A0C997DC1BD7604A00EAE85E /* AppDelegate.m */,
-				A0C997DE1BD7604A00EAE85E /* ViewController.h */,
-				A0C997DF1BD7604A00EAE85E /* ViewController.m */,
-				A0C997E41BD7604A00EAE85E /* Assets.xcassets */,
-				A0C997E61BD7604A00EAE85E /* LaunchScreen.storyboard */,
-				A0C997E91BD7604A00EAE85E /* Info.plist */,
-				A0C997D81BD7604A00EAE85E /* Supporting Files */,
+				A00B4CB51BF05F9900444C02 /* AppDelegate.h */,
+				A00B4CB61BF05F9900444C02 /* AppDelegate.m */,
+				A00B4CB81BF05F9900444C02 /* ViewController.h */,
+				A00B4CB91BF05F9900444C02 /* ViewController.m */,
+				A00B4CBE1BF05F9900444C02 /* Assets.xcassets */,
+				A00B4CC01BF05F9900444C02 /* LaunchScreen.storyboard */,
+				A00B4CC31BF05F9900444C02 /* Info.plist */,
+				A00B4CB21BF05F9900444C02 /* Supporting Files */,
 			);
 			path = ZKSegmentDemo;
 			sourceTree = "<group>";
 		};
-		A0C997D81BD7604A00EAE85E /* Supporting Files */ = {
+		A00B4CB21BF05F9900444C02 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A0C997D91BD7604A00EAE85E /* main.m */,
+				A00B4CB31BF05F9900444C02 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A0C997F01BD761DE00EAE85E /* ZKSegment */ = {
+		A00B4CC91BF05FA900444C02 /* ZKSegment */ = {
 			isa = PBXGroup;
 			children = (
-				A0C997F11BD761DE00EAE85E /* ZKSegment.h */,
-				A0C997F21BD761DE00EAE85E /* ZKSegment.m */,
+				A00B4CCA1BF05FA900444C02 /* ZKSegment.h */,
+				A00B4CCB1BF05FA900444C02 /* ZKSegment.m */,
 			);
 			name = ZKSegment;
 			path = ../ZKSegment;
@@ -93,13 +93,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A0C997D41BD7604A00EAE85E /* ZKSegmentDemo */ = {
+		A00B4CAE1BF05F9900444C02 /* ZKSegmentDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0C997EC1BD7604A00EAE85E /* Build configuration list for PBXNativeTarget "ZKSegmentDemo" */;
+			buildConfigurationList = A00B4CC61BF05F9900444C02 /* Build configuration list for PBXNativeTarget "ZKSegmentDemo" */;
 			buildPhases = (
-				A0C997D11BD7604A00EAE85E /* Sources */,
-				A0C997D21BD7604A00EAE85E /* Frameworks */,
-				A0C997D31BD7604A00EAE85E /* Resources */,
+				A00B4CAB1BF05F9900444C02 /* Sources */,
+				A00B4CAC1BF05F9900444C02 /* Frameworks */,
+				A00B4CAD1BF05F9900444C02 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -107,24 +107,24 @@
 			);
 			name = ZKSegmentDemo;
 			productName = ZKSegmentDemo;
-			productReference = A0C997D51BD7604A00EAE85E /* ZKSegmentDemo.app */;
+			productReference = A00B4CAF1BF05F9900444C02 /* ZKSegmentDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A0C997CD1BD7604900EAE85E /* Project object */ = {
+		A00B4CA71BF05F9900444C02 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = WangWenzhuang;
 				TargetAttributes = {
-					A0C997D41BD7604A00EAE85E = {
-						CreatedOnToolsVersion = 7.0.1;
+					A00B4CAE1BF05F9900444C02 = {
+						CreatedOnToolsVersion = 7.1;
 					};
 				};
 			};
-			buildConfigurationList = A0C997D01BD7604900EAE85E /* Build configuration list for PBXProject "ZKSegmentDemo" */;
+			buildConfigurationList = A00B4CAA1BF05F9900444C02 /* Build configuration list for PBXProject "ZKSegmentDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -132,47 +132,47 @@
 				en,
 				Base,
 			);
-			mainGroup = A0C997CC1BD7604900EAE85E;
-			productRefGroup = A0C997D61BD7604A00EAE85E /* Products */;
+			mainGroup = A00B4CA61BF05F9900444C02;
+			productRefGroup = A00B4CB01BF05F9900444C02 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0C997D41BD7604A00EAE85E /* ZKSegmentDemo */,
+				A00B4CAE1BF05F9900444C02 /* ZKSegmentDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A0C997D31BD7604A00EAE85E /* Resources */ = {
+		A00B4CAD1BF05F9900444C02 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0C997E81BD7604A00EAE85E /* LaunchScreen.storyboard in Resources */,
-				A0C997E51BD7604A00EAE85E /* Assets.xcassets in Resources */,
+				A00B4CC21BF05F9900444C02 /* LaunchScreen.storyboard in Resources */,
+				A00B4CBF1BF05F9900444C02 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A0C997D11BD7604A00EAE85E /* Sources */ = {
+		A00B4CAB1BF05F9900444C02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0C997E01BD7604A00EAE85E /* ViewController.m in Sources */,
-				A0C997DD1BD7604A00EAE85E /* AppDelegate.m in Sources */,
-				A0C997DA1BD7604A00EAE85E /* main.m in Sources */,
-				A0C997F31BD761DE00EAE85E /* ZKSegment.m in Sources */,
+				A00B4CBA1BF05F9900444C02 /* ViewController.m in Sources */,
+				A00B4CB71BF05F9900444C02 /* AppDelegate.m in Sources */,
+				A00B4CCC1BF05FA900444C02 /* ZKSegment.m in Sources */,
+				A00B4CB41BF05F9900444C02 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A0C997E61BD7604A00EAE85E /* LaunchScreen.storyboard */ = {
+		A00B4CC01BF05F9900444C02 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A0C997E71BD7604A00EAE85E /* Base */,
+				A00B4CC11BF05F9900444C02 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A0C997EA1BD7604A00EAE85E /* Debug */ = {
+		A00B4CC41BF05F9900444C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -216,14 +216,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		A0C997EB1BD7604A00EAE85E /* Release */ = {
+		A00B4CC51BF05F9900444C02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -253,31 +253,29 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		A0C997ED1BD7604A00EAE85E /* Debug */ = {
+		A00B4CC71BF05F9900444C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ZKSegmentDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangwenzhuang.ZKSegmentDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		A0C997EE1BD7604A00EAE85E /* Release */ = {
+		A00B4CC81BF05F9900444C02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ZKSegmentDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangwenzhuang.ZKSegmentDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,25 +285,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A0C997D01BD7604900EAE85E /* Build configuration list for PBXProject "ZKSegmentDemo" */ = {
+		A00B4CAA1BF05F9900444C02 /* Build configuration list for PBXProject "ZKSegmentDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A0C997EA1BD7604A00EAE85E /* Debug */,
-				A0C997EB1BD7604A00EAE85E /* Release */,
+				A00B4CC41BF05F9900444C02 /* Debug */,
+				A00B4CC51BF05F9900444C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0C997EC1BD7604A00EAE85E /* Build configuration list for PBXNativeTarget "ZKSegmentDemo" */ = {
+		A00B4CC61BF05F9900444C02 /* Build configuration list for PBXNativeTarget "ZKSegmentDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A0C997ED1BD7604A00EAE85E /* Debug */,
-				A0C997EE1BD7604A00EAE85E /* Release */,
+				A00B4CC71BF05F9900444C02 /* Debug */,
+				A00B4CC81BF05F9900444C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A0C997CD1BD7604900EAE85E /* Project object */;
+	rootObject = A00B4CA71BF05F9900444C02 /* Project object */;
 }

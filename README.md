@@ -1,12 +1,22 @@
 # ZKSegment
 
-[![Build Status](https://img.shields.io/badge/build-passing-blue.svg)](https://github.com/WangWenzhuang/ZKSegment)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/WangWenzhuang/ZKSegment)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
+[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
+[![CocoaPods](https://img.shields.io/badge/pod-v1.0.1-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
+[![platform](https://img.shields.io/badge/platform-iOS-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
+[![platform](https://img.shields.io/badge/contact-1020304029%40q.com-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
+
 ZKSegment 是一个分段选择控件
 
 ## 安装 ##
 
+### 手动安装 ###
+
 拷贝 `ZKSegment/` 目录下的2个文件 `ZKSegment.h` / `ZKSegment.m` 到项目里即可。
+
+### CocoaPods ###
+
+```pod 'ZKSegment'```
 
 ## 快速使用 ##
 

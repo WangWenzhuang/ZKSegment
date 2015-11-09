@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  ZKSegmentDemo
 //
-//  Created by 王文壮 on 15/10/21.
+//  Created by 王文壮 on 15/11/9.
 //  Copyright © 2015年 WangWenzhuang. All rights reserved.
 //
 
@@ -17,8 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
+    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[[ViewController alloc] init]];
     [self.window makeKeyAndVisible];
     return YES;
 }
