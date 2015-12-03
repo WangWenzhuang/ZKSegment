@@ -13,6 +13,7 @@
 		A00B4CBF1BF05F9900444C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00B4CBE1BF05F9900444C02 /* Assets.xcassets */; };
 		A00B4CC21BF05F9900444C02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00B4CC01BF05F9900444C02 /* LaunchScreen.storyboard */; };
 		A00B4CCC1BF05FA900444C02 /* ZKSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = A00B4CCB1BF05FA900444C02 /* ZKSegment.m */; };
+		A01B81921C104467004EAE30 /* ZKSegmentLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A01B81911C104467004EAE30 /* ZKSegmentLine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		A00B4CC31BF05F9900444C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A00B4CCA1BF05FA900444C02 /* ZKSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKSegment.h; sourceTree = "<group>"; };
 		A00B4CCB1BF05FA900444C02 /* ZKSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKSegment.m; sourceTree = "<group>"; };
+		A01B81901C104467004EAE30 /* ZKSegmentLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKSegmentLine.h; sourceTree = "<group>"; };
+		A01B81911C104467004EAE30 /* ZKSegmentLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKSegmentLine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 			children = (
 				A00B4CCA1BF05FA900444C02 /* ZKSegment.h */,
 				A00B4CCB1BF05FA900444C02 /* ZKSegment.m */,
+				A01B81901C104467004EAE30 /* ZKSegmentLine.h */,
+				A01B81911C104467004EAE30 /* ZKSegmentLine.m */,
 			);
 			name = ZKSegment;
 			path = ../ZKSegment;
@@ -163,6 +168,7 @@
 				A00B4CB71BF05F9900444C02 /* AppDelegate.m in Sources */,
 				A00B4CCC1BF05FA900444C02 /* ZKSegment.m in Sources */,
 				A00B4CB41BF05F9900444C02 /* main.m in Sources */,
+				A01B81921C104467004EAE30 /* ZKSegmentLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +307,7 @@
 				A00B4CC81BF05F9900444C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
