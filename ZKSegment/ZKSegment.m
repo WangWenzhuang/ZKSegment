@@ -14,6 +14,8 @@
 #define ZK_ItemPadding 8.0f
 #define ZK_ScreenWidth [UIScreen mainScreen].bounds.size.width
 
+#define ZK_Version @"1.0.2"
+
 @interface ZKSegment()
 @property(nonatomic, strong) UIColor *itemDefaultColor;
 @property(nonatomic, strong) UIColor *itemSelectedColor;
@@ -215,6 +217,10 @@
             return;
         }
     }
+}
+
+- (NSString *)zk_version {
+    return ZK_Version;
 }
 
 #pragma 私有的

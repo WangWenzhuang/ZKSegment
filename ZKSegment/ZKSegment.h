@@ -15,7 +15,7 @@ typedef enum {
     /**
      *  线条样式
      */
-    ZKSegmentLineStyle,
+    ZKSegmentLineStyle = 0,
     /**
      *  矩形
      */
@@ -101,4 +101,9 @@ typedef enum {
  *  移除指定项
  */
 - (void)zk_removeItem:(NSString *)item;
+
+/**
+ *  版本号
+ */
+- (NSString *)zk_version;
 @end
