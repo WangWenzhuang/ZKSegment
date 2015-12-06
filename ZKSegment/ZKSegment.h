@@ -15,7 +15,11 @@ typedef enum {
     /**
      *  线条样式
      */
-    ZKSegmentLineStyle
+    ZKSegmentLineStyle,
+    /**
+     *  矩形
+     */
+    ZKSegmentRectangleStyle
 } ZKSegmentStyle;
 
 @interface ZKSegment : UIScrollView
@@ -29,6 +33,10 @@ typedef enum {
  *  项切换 Block
  */
 @property(nonatomic, copy) void (^zk_itemClickBlock)(NSString *itemName, NSInteger itemIndex);
+/**
+ *  初始化
+ */
+- (id)zk_initWithFrame:(CGRect)frame style:(ZKSegmentStyle)style;
 /**
  *  设置项目集合
  */
@@ -46,9 +54,16 @@ typedef enum {
 /**
  *  设置选中项颜色
  *
- *  默认[r:202.0, g:51.0, b:54.0]
+ *  ZKSegmentLineStyle 默认[r:202.0, g:51.0, b:54.0]
+ *  ZKSegmentRectangleStyle 默认[r:250.0, g:250.0, b:250.0]
  */
 - (void)zk_setItemSelectedColor:(UIColor *)color;
+/**
+ *  设置选中项样式颜色
+ *
+ *  默认[r:202.0, g:51.0, b:54.0]
+ */
+- (void)zk_setItemStyleSelectedColor:(UIColor *)color;
 
 /**
  *  设置背景色
