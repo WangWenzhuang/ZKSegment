@@ -23,34 +23,52 @@ typedef enum {
     /**
      *  文字样式
      */
-    ZKSegmentTextStyle = 2
+    ZKSegmentTextStyle = 2,
+    /**
+     *  图文样式
+     */
+//    ZKSegmentImageAndTextStyle = 3
 } ZKSegmentStyle;
 
 @interface ZKSegment : UIScrollView
 /**
- *  每一项默认颜色
+ *  每一项颜色
+ *
  *  默认 [r:102.0f,g:102.0f,b:102.0f]
  */
 @property(nonatomic, strong) UIColor *zk_itemDefaultColor;
 /**
  *  选中项颜色
  *
- *  ZKSegmentLineStyle 默认[r:202.0, g:51.0, b:54.0]
+ *  ZKSegmentLineStyle 默认 [r:202.0, g:51.0, b:54.0]
  *  ZKSegmentRectangleStyle 默认[r:250.0, g:250.0, b:250.0]
+ *  ZKSegmentTextStyle 默认 [r:202.0, g:51.0, b:54.0]
  */
 @property(nonatomic, strong) UIColor *zk_itemSelectedColor;
 /**
  *  选中项样式颜色
  *
- *  默认[r:202.0, g:51.0, b:54.0]
+ *  默认 [r:202.0, g:51.0, b:54.0]
  */
 @property(nonatomic, strong) UIColor *zk_itemStyleSelectedColor;
 /**
  *  背景色
  *
- *  默认[r:238.0, g:238.0, b:238.0]
+ *  默认 [r:238.0, g:238.0, b:238.0]
  */
 @property(nonatomic, strong) UIColor *zk_backgroundColor;
+/**
+ *  每一项字体大小
+ *
+ *  默认 14
+ */
+@property(nonatomic, assign) CGFloat zk_itemFontSize;
+/**
+ *  每一项间距
+ *
+ *  默认 20
+ */
+@property(nonatomic, assign) CGFloat zk_itemMargin;
 /**
  *  项切换 Block
  */

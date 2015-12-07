@@ -9,11 +9,8 @@
 #import "ZKSegment.h"
 
 #define ZK_UIColorFromRGBAlpha(r, g, b, a) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(a)]
-#define ZK_ItemFontSize 14.0f
-#define ZK_ItemMargin 20.0f
-#define ZK_ItemPadding 8.0f
 #define ZK_ScreenWidth [UIScreen mainScreen].bounds.size.width
-
+#define ZK_ItemPadding 8.0f
 #define ZK_Version @"1.0.2"
 
 @interface ZKSegment ()
@@ -70,6 +67,8 @@
 
 - (void)commonInit {
     [self buttonStyleFromSegmentStyle];
+    self.zk_itemFontSize = 14;
+    self.zk_itemMargin = 20;
     self.zk_itemDefaultColor = ZK_UIColorFromRGBAlpha(102.0f, 102.0f, 102.0f, 1.0f);
     self.itemStyleSelectedColor = ZK_UIColorFromRGBAlpha(202.0f, 51.0f, 54.0f, 1.0f);
     switch (self.segmentStyle) {
@@ -78,19 +77,20 @@
             break;
         case ZKSegmentRectangleStyle:
             self.zk_itemSelectedColor = ZK_UIColorFromRGBAlpha(250.0f, 250.0f, 250.0f, 1.0f);
+            self.zk_itemMargin = 10;
             break;
         case ZKSegmentTextStyle:
             self.zk_itemSelectedColor = ZK_UIColorFromRGBAlpha(202.0f, 51.0f, 54.0f, 1.0f);
             break;
     }
     self.segmentBackgroundColor = ZK_UIColorFromRGBAlpha(238.0f, 238.0f, 238.0f, 1.0f);
-    self.maxWidth = ZK_ItemMargin;
+    self.maxWidth = self.zk_itemMargin;
     self.buttonList = [NSMutableArray array];
     self.allItems = [NSMutableArray array];
     self.bounces = NO;
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
-    self.buttonStyle = [[UIView alloc] initWithFrame:CGRectMake(ZK_ItemMargin, self.buttonStyleY, 0, self.buttonStyleHeight)];
+    self.buttonStyle = [[UIView alloc] initWithFrame:CGRectMake(self.zk_itemMargin, self.buttonStyleY, 0, self.buttonStyleHeight)];
     self.buttonStyle.backgroundColor = self.zk_itemStyleSelectedColor;
     self.buttonStyle.layer.masksToBounds = self.buttonStyleMasksToBounds;
     self.buttonStyle.layer.cornerRadius = self.buttonStyleCornerRadius;
@@ -135,7 +135,7 @@
         }
     }
     self.buttonStyle.hidden = NO;
-    self.maxWidth = ZK_ItemMargin;
+    self.maxWidth = self.zk_itemMargin;
     [self.allItems removeAllObjects];
     [self.allItems addObjectsFromArray:items];
     self.buttonList = nil;
@@ -233,13 +233,12 @@
 }
 
 - (void)fiexButtonWidth {
-    if (ZK_ScreenWidth - self.maxWidth > ZK_ItemMargin) {
+    if (ZK_ScreenWidth - self.maxWidth > self.zk_itemMargin) {
         CGFloat bigButtonSumWidth = 0;
         int bigButtonCount = 0;
-        self.maxWidth = ZK_ItemMargin;
+        self.maxWidth = self.zk_itemMargin;
         CGFloat width =
-        (ZK_ScreenWidth - (self.buttonList.count + 1) * ZK_ItemMargin) /
-        self.buttonList.count;
+        (ZK_ScreenWidth - (self.buttonList.count + 1) * self.zk_itemMargin) / self.buttonList.count;
         for (int i = 0; i < self.buttonList.count; i++) {
             UIButton *button = self.buttonList[i];
             if (button.frame.size.width > width) {
@@ -247,16 +246,16 @@
                 bigButtonSumWidth += button.frame.size.width;
             }
         }
-        width = (ZK_ScreenWidth - (self.buttonList.count + 1) * ZK_ItemMargin - bigButtonSumWidth) / (self.buttonList.count - bigButtonCount);
+        width = (ZK_ScreenWidth - (self.buttonList.count + 1) * self.zk_itemMargin - bigButtonSumWidth) / (self.buttonList.count - bigButtonCount);
         for (int i = 0; i < self.buttonList.count; i++) {
             UIButton *button = self.buttonList[i];
             if (button.frame.size.width < width) {
                 button.frame =
                 CGRectMake(self.maxWidth, 0, width, self.frame.size.height);
-                self.maxWidth += width + ZK_ItemMargin;
+                self.maxWidth += width + self.zk_itemMargin;
             } else {
                 button.frame = CGRectMake(self.maxWidth, 0, button.frame.size.width, self.frame.size.height);
-                self.maxWidth += button.frame.size.width + ZK_ItemMargin;
+                self.maxWidth += button.frame.size.width + self.zk_itemMargin;
             }
             if (button == self.buttonSelected) {
                 self.buttonStyle.frame = CGRectMake(button.frame.origin.x, self.buttonStyleY, button.frame.size.width, self.buttonStyleHeight);
@@ -267,7 +266,7 @@
 }
 
 - (void)resetButtonsFrame {
-    self.maxWidth = ZK_ItemMargin;
+    self.maxWidth = self.zk_itemMargin;
     
     for (int i = 0; i < self.allItems.count; i++) {
         CGFloat width = [self itemWidthFromSegmentStyle:self.allItems[i]];
@@ -280,7 +279,7 @@
             [button setTitleColor:self.zk_itemSelectedColor forState:0];
             [self itemClick:button];
         }
-        self.maxWidth += width + ZK_ItemMargin;
+        self.maxWidth += width + self.zk_itemMargin;
     }
     
     self.contentSize = CGSizeMake(self.maxWidth, -4);
@@ -289,11 +288,11 @@
 - (void)createItem:(NSString *)item {
     CGFloat itemWidth = [self itemWidthFromSegmentStyle:item];
     UIButton *buttonItem = [[UIButton alloc] initWithFrame:CGRectMake(self.maxWidth, 0, itemWidth, self.frame.size.height)];
-    buttonItem.titleLabel.font = [UIFont systemFontOfSize:ZK_ItemFontSize];
+    buttonItem.titleLabel.font = [UIFont systemFontOfSize:self.zk_itemFontSize];
     [buttonItem setTitle:item forState:UIControlStateNormal];
     [buttonItem setTitleColor:self.zk_itemDefaultColor forState:UIControlStateNormal];
     [buttonItem addTarget:self action:@selector(itemClick:) forControlEvents:UIControlEventTouchUpInside];
-    self.maxWidth += itemWidth + ZK_ItemMargin;
+    self.maxWidth += itemWidth + self.zk_itemMargin;
     [self.buttonList addObject:buttonItem];
     [self addSubview:buttonItem];
     if (!self.buttonSelected) {
@@ -304,7 +303,7 @@
 }
 
 - (CGFloat)itemWidthFromSegmentStyle:(NSString *)item {
-    CGFloat itemWidth = [self textWidthWithFontSize:ZK_ItemFontSize Text:item];
+    CGFloat itemWidth = [self textWidthWithFontSize:self.zk_itemFontSize Text:item];
     CGFloat resultItemWidht;
     switch (self.segmentStyle) {
         case ZKSegmentLineStyle:
@@ -352,7 +351,7 @@
                                   } else if (buttonX < ZK_ScreenWidth / 2.0f - buttonWidth / 2.0f) { // 移动到开始
                                       self.contentOffset = CGPointMake(0, 0);
                                   } else if (scrollerWidth - buttonX < ZK_ScreenWidth / 2.0f + buttonWidth / 2.0f || // Scroller的宽度减去按钮的坐标小于屏幕的一半，移动到最后
-                                             buttonX + buttonWidth + ZK_ItemMargin == scrollerWidth) {
+                                             buttonX + buttonWidth + self.zk_itemMargin == scrollerWidth) {
                                       if (scrollerWidth > ZK_ScreenWidth) {
                                           self.contentOffset = CGPointMake(scrollerWidth - ZK_ScreenWidth, 0); // 移动到末尾
                                       }
