@@ -10,9 +10,9 @@ ZKSegment 是一个分段选择控件
 
 ![1](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/1.png)
 
-![2](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/1.png)
+![2](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/2.png)
 
-![3](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/1.png)
+![3](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/3.png)
 
 ## 安装
 
