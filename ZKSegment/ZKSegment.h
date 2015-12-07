@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /**
- 设备支持方向
+ *  样式
  */
 typedef enum {
     /**
