@@ -9,7 +9,7 @@
 #import "SelectStyleViewController.h"
 
 @interface SelectStyleViewController ()
-@property (nonatomic, strong)NSDictionary *styles;
+@property (nonatomic, strong)NSArray *styles;
 @end
 
 @implementation SelectStyleViewController
@@ -24,10 +24,7 @@
     view.backgroundColor = [UIColor clearColor];
     [self.tableView setTableFooterView:view];
 
-    self.styles = @{
-      @"ZKSegmentLineStyle" : [NSNumber numberWithInt:0],
-      @"ZKSegmentRectangleStyle" : [NSNumber numberWithInt:1]
-    };
+    self.styles = @[ @"ZKSegmentLineStyle", @"ZKSegmentRectangleStyle", @"ZKSegmentTextStyle" ];
 }
 
 #pragma mark - Table view data source
@@ -37,7 +34,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.styles.allKeys.count;
+    return self.styles.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -49,7 +46,7 @@
     if (self.selectSegmentStyle == indexPath.row) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
-    cell.textLabel.text = self.styles.allKeys[indexPath.row];
+    cell.textLabel.text = self.styles[indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:15];
     cell.textLabel.textColor = [UIColor colorWithRed:102 / 255.0 green:102 / 255.0 blue:102 / 255.0 alpha:1];
     cell.textLabel.backgroundColor = [UIColor clearColor];

@@ -8,7 +8,7 @@
 
 #import "ZKSegment.h"
 
-#define ZK_UIColorFromRGBAlpha(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define ZK_UIColorFromRGBAlpha(r, g, b, a) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(a)]
 #define ZK_ItemFontSize 14.0f
 #define ZK_ItemMargin 20.0f
 #define ZK_ItemPadding 8.0f
@@ -16,7 +16,7 @@
 
 #define ZK_Version @"1.0.2"
 
-@interface ZKSegment()
+@interface ZKSegment ()
 @property(nonatomic, strong) UIView *buttonStyle;
 @property(nonatomic, assign) CGFloat maxWidth;
 @property(nonatomic, strong) NSMutableArray *buttonList;
@@ -25,13 +25,13 @@
 @property(nonatomic, assign) ZKSegmentStyle segmentStyle;
 @property(nonatomic, assign) CGFloat buttonStyleY;
 @property(nonatomic, assign) CGFloat buttonStyleHeight;
-@property(nonatomic ,assign) BOOL buttonStyleMasksToBounds;
-@property(nonatomic ,assign) CGFloat buttonStyleCornerRadius;
+@property(nonatomic, assign) BOOL buttonStyleMasksToBounds;
+@property(nonatomic, assign) CGFloat buttonStyleCornerRadius;
 @end
 
 @implementation ZKSegment
 
-+(ZKSegment *) zk_segmentWithFrame:(CGRect)frame style:(ZKSegmentStyle)style {
++ (ZKSegment *)zk_segmentWithFrame:(CGRect)frame style:(ZKSegmentStyle)style {
     return [[ZKSegment alloc] zk_initWithFrame:frame style:style];
 }
 
@@ -68,7 +68,7 @@
     return self;
 }
 
-- (void)commonInit{
+- (void)commonInit {
     [self buttonStyleFromSegmentStyle];
     self.zk_itemDefaultColor = ZK_UIColorFromRGBAlpha(102.0f, 102.0f, 102.0f, 1.0f);
     self.itemStyleSelectedColor = ZK_UIColorFromRGBAlpha(202.0f, 51.0f, 54.0f, 1.0f);
@@ -79,6 +79,9 @@
         case ZKSegmentRectangleStyle:
             self.zk_itemSelectedColor = ZK_UIColorFromRGBAlpha(250.0f, 250.0f, 250.0f, 1.0f);
             break;
+        case ZKSegmentTextStyle:
+            self.zk_itemSelectedColor = ZK_UIColorFromRGBAlpha(202.0f, 51.0f, 54.0f, 1.0f);
+            break;
     }
     self.segmentBackgroundColor = ZK_UIColorFromRGBAlpha(238.0f, 238.0f, 238.0f, 1.0f);
     self.maxWidth = ZK_ItemMargin;
@@ -87,38 +90,37 @@
     self.bounces = NO;
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
-    self.buttonStyle = [[UIView alloc]initWithFrame:CGRectMake(ZK_ItemMargin, self.buttonStyleY, 0, self.buttonStyleHeight)];
+    self.buttonStyle = [[UIView alloc] initWithFrame:CGRectMake(ZK_ItemMargin, self.buttonStyleY, 0, self.buttonStyleHeight)];
     self.buttonStyle.backgroundColor = self.zk_itemStyleSelectedColor;
     self.buttonStyle.layer.masksToBounds = self.buttonStyleMasksToBounds;
     self.buttonStyle.layer.cornerRadius = self.buttonStyleCornerRadius;
     [self addSubview:self.buttonStyle];
 }
 
--(void)setItemStyleSelectedColor:(UIColor *)itemStyleSelectedColor {
+- (void)setItemStyleSelectedColor:(UIColor *)itemStyleSelectedColor {
     _zk_itemStyleSelectedColor = itemStyleSelectedColor;
-    self.buttonStyle.backgroundColor = itemStyleSelectedColor;
 }
 
--(void)setSegmentBackgroundColor:(UIColor *)segmentBackgroundColor {
+- (void)setSegmentBackgroundColor:(UIColor *)segmentBackgroundColor {
     _zk_backgroundColor = segmentBackgroundColor;
     self.backgroundColor = segmentBackgroundColor;
 }
 
--(int)zk_selectedItemIndex {
+- (int)zk_selectedItemIndex {
     if (self.buttonSelected) {
         return [self indexOfItemsWithItem:self.buttonSelected.titleLabel.text];
     }
     return -1;
 }
 
--(NSString *)zk_selectedItem {
+- (NSString *)zk_selectedItem {
     if (self.buttonSelected) {
         return self.buttonSelected.titleLabel.text;
     }
     return nil;
 }
 
--(NSString *)zk_version {
+- (NSString *)zk_version {
     return ZK_Version;
 }
 
@@ -219,9 +221,13 @@
             break;
         case ZKSegmentRectangleStyle:
             self.buttonStyleY = ZK_ItemPadding;
-            self.buttonStyleHeight = self.frame.size.height - ZK_ItemPadding *2;
+            self.buttonStyleHeight = self.frame.size.height - ZK_ItemPadding * 2;
             self.buttonStyleCornerRadius = 6.0f;
             self.buttonStyleMasksToBounds = YES;
+            break;
+        case ZKSegmentTextStyle:
+            self.buttonStyleY = 0;
+            self.buttonStyleHeight = 0.0f;
             break;
     }
 }
@@ -231,7 +237,9 @@
         CGFloat bigButtonSumWidth = 0;
         int bigButtonCount = 0;
         self.maxWidth = ZK_ItemMargin;
-        CGFloat width = (ZK_ScreenWidth - (self.buttonList.count + 1) * ZK_ItemMargin) / self.buttonList.count;
+        CGFloat width =
+        (ZK_ScreenWidth - (self.buttonList.count + 1) * ZK_ItemMargin) /
+        self.buttonList.count;
         for (int i = 0; i < self.buttonList.count; i++) {
             UIButton *button = self.buttonList[i];
             if (button.frame.size.width > width) {
@@ -243,7 +251,8 @@
         for (int i = 0; i < self.buttonList.count; i++) {
             UIButton *button = self.buttonList[i];
             if (button.frame.size.width < width) {
-                button.frame = CGRectMake(self.maxWidth, 0, width, self.frame.size.height);
+                button.frame =
+                CGRectMake(self.maxWidth, 0, width, self.frame.size.height);
                 self.maxWidth += width + ZK_ItemMargin;
             } else {
                 button.frame = CGRectMake(self.maxWidth, 0, button.frame.size.width, self.frame.size.height);
@@ -294,7 +303,7 @@
     }
 }
 
-- (CGFloat)itemWidthFromSegmentStyle:(NSString *) item {
+- (CGFloat)itemWidthFromSegmentStyle:(NSString *)item {
     CGFloat itemWidth = [self textWidthWithFontSize:ZK_ItemFontSize Text:item];
     CGFloat resultItemWidht;
     switch (self.segmentStyle) {
@@ -303,6 +312,9 @@
             break;
         case ZKSegmentRectangleStyle:
             resultItemWidht = itemWidth + ZK_ItemPadding * 2;
+            break;
+        case ZKSegmentTextStyle:
+            resultItemWidht = itemWidth;
             break;
     }
     return resultItemWidht;
@@ -319,7 +331,9 @@
             NSString *selectedItem = button.titleLabel.text;
             self.zk_itemClickBlock(selectedItem, selectedIndex);
         }
-        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut
+        [UIView animateWithDuration:0.3
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              self.buttonStyle.frame = CGRectMake(button.frame.origin.x, self.buttonStyleY, button.frame.size.width, self.buttonStyleHeight);
                          }
@@ -359,7 +373,10 @@
 
 - (CGFloat)textWidthWithFontSize:(CGFloat)fontSize Text:(NSString *)text {
     NSDictionary *attr = @{NSFontAttributeName : [UIFont systemFontOfSize:fontSize]};
-    CGRect size = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, self.frame.size.height) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil];
+    CGRect size = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, self.frame.size.height)
+                       options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin
+                    attributes:attr
+                       context:nil];
     return size.size.width;
 }
 

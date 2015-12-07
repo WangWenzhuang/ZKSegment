@@ -12,14 +12,18 @@
  设备支持方向
  */
 typedef enum {
-  /**
-   *  线条样式
-   */
-  ZKSegmentLineStyle = 0,
-  /**
-   *  矩形
-   */
-  ZKSegmentRectangleStyle
+    /**
+     *  线条样式
+     */
+    ZKSegmentLineStyle = 0,
+    /**
+     *  矩形样式
+     */
+    ZKSegmentRectangleStyle = 1,
+    /**
+     *  文字样式
+     */
+    ZKSegmentTextStyle = 2
 } ZKSegmentStyle;
 
 @interface ZKSegment : UIScrollView
