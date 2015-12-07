@@ -46,7 +46,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    if (self.selectSegmentStyleNumber.intValue == indexPath.row) {
+    if (self.selectSegmentStyle == indexPath.row) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     cell.textLabel.text = self.styles.allKeys[indexPath.row];
@@ -60,9 +60,12 @@
     return 50;
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (self.delegate) {
+        [self.delegate SelectStyleViewController:self didSelectSegmentStyle:(int)indexPath.row];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

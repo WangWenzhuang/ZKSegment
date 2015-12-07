@@ -17,16 +17,11 @@
 #define ZK_Version @"1.0.2"
 
 @interface ZKSegment()
-@property(nonatomic, strong) UIColor *itemDefaultColor;
-@property(nonatomic, strong) UIColor *itemSelectedColor;
-@property(nonatomic, strong) UIColor *itemStyleSelectedColor;
 @property(nonatomic, strong) UIView *buttonStyle;
 @property(nonatomic, assign) CGFloat maxWidth;
 @property(nonatomic, strong) NSMutableArray *buttonList;
 @property(nonatomic, strong) NSMutableArray *allItems;
 @property(nonatomic, weak) UIButton *buttonSelected;
-@property(nonatomic, assign) NSInteger selectedIndex;
-@property(nonatomic, strong) NSString *selectedItem;
 @property(nonatomic, assign) ZKSegmentStyle segmentStyle;
 @property(nonatomic, assign) CGFloat buttonStyleY;
 @property(nonatomic, assign) CGFloat buttonStyleHeight;
@@ -75,49 +70,59 @@
 
 - (void)commonInit{
     [self buttonStyleFromSegmentStyle];
-    self.itemDefaultColor = ZK_UIColorFromRGBAlpha(102.0f, 102.0f, 102.0f, 1.0f);
+    self.zk_itemDefaultColor = ZK_UIColorFromRGBAlpha(102.0f, 102.0f, 102.0f, 1.0f);
     self.itemStyleSelectedColor = ZK_UIColorFromRGBAlpha(202.0f, 51.0f, 54.0f, 1.0f);
     switch (self.segmentStyle) {
         case ZKSegmentLineStyle:
-            self.itemSelectedColor = ZK_UIColorFromRGBAlpha(202.0f, 51.0f, 54.0f, 1.0f);
+            self.zk_itemSelectedColor = ZK_UIColorFromRGBAlpha(202.0f, 51.0f, 54.0f, 1.0f);
             break;
         case ZKSegmentRectangleStyle:
-            self.itemSelectedColor = ZK_UIColorFromRGBAlpha(250.0f, 250.0f, 250.0f, 1.0f);
+            self.zk_itemSelectedColor = ZK_UIColorFromRGBAlpha(250.0f, 250.0f, 250.0f, 1.0f);
             break;
     }
-    self.backgroundColor = ZK_UIColorFromRGBAlpha(238.0f, 238.0f, 238.0f, 1.0f);
+    self.segmentBackgroundColor = ZK_UIColorFromRGBAlpha(238.0f, 238.0f, 238.0f, 1.0f);
     self.maxWidth = ZK_ItemMargin;
     self.buttonList = [NSMutableArray array];
     self.allItems = [NSMutableArray array];
     self.bounces = NO;
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
-    self.selectedIndex = -1;
     self.buttonStyle = [[UIView alloc]initWithFrame:CGRectMake(ZK_ItemMargin, self.buttonStyleY, 0, self.buttonStyleHeight)];
-    self.buttonStyle.backgroundColor = self.itemStyleSelectedColor;
+    self.buttonStyle.backgroundColor = self.zk_itemStyleSelectedColor;
     self.buttonStyle.layer.masksToBounds = self.buttonStyleMasksToBounds;
     self.buttonStyle.layer.cornerRadius = self.buttonStyleCornerRadius;
     [self addSubview:self.buttonStyle];
 }
 
+-(void)setItemStyleSelectedColor:(UIColor *)itemStyleSelectedColor {
+    _zk_itemStyleSelectedColor = itemStyleSelectedColor;
+    self.buttonStyle.backgroundColor = itemStyleSelectedColor;
+}
+
+-(void)setSegmentBackgroundColor:(UIColor *)segmentBackgroundColor {
+    _zk_backgroundColor = segmentBackgroundColor;
+    self.backgroundColor = segmentBackgroundColor;
+}
+
+-(int)zk_selectedItemIndex {
+    if (self.buttonSelected) {
+        return [self indexOfItemsWithItem:self.buttonSelected.titleLabel.text];
+    }
+    return -1;
+}
+
+-(NSString *)zk_selectedItem {
+    if (self.buttonSelected) {
+        return self.buttonSelected.titleLabel.text;
+    }
+    return nil;
+}
+
+-(NSString *)zk_version {
+    return ZK_Version;
+}
+
 #pragma 暴露给外部的
-- (void)zk_setItemDefaultColor:(UIColor *)color {
-    self.itemDefaultColor = color;
-}
-
-- (void)zk_setItemSelectedColor:(UIColor *)color {
-    self.itemSelectedColor = color;
-}
-
-- (void)zk_setItemStyleSelectedColor:(UIColor *)color {
-    self.itemStyleSelectedColor = color;
-    self.buttonStyle.backgroundColor = color;
-}
-
-- (void)zk_setBackgroundColor:(UIColor *)color {
-    self.backgroundColor = color;
-}
-
 - (void)zk_setItems:(NSArray *)items {
     if (!items || items.count == 0) {
         return;
@@ -134,8 +139,6 @@
     self.buttonList = nil;
     self.buttonList = [[NSMutableArray alloc] init];
     self.buttonSelected = nil;
-    self.selectedItem = nil;
-    self.selectedIndex = -1;
     if (self.allItems && self.allItems.count > 0) {
         self.backgroundColor = self.backgroundColor;
         for (int i = 0; i < self.allItems.count; i++) {
@@ -156,14 +159,6 @@
     }
     UIButton *item = (UIButton *)self.buttonList[index];
     [self itemClick:item];
-}
-
-- (NSInteger)zk_selectedItemIndex {
-    return self.selectedIndex;
-}
-
-- (NSString *)zk_selectedItem {
-    return self.selectedItem;
 }
 
 - (void)zk_addItem:(NSString *)item {
@@ -194,13 +189,9 @@
             _index = index - 1;
         }
         [self itemClick:self.buttonList[_index]];
-        self.selectedIndex = _index;
-        self.selectedItem = self.buttonSelected.titleLabel.text;
     }
     if (self.buttonList.count == 0) {
         self.buttonSelected = nil;
-        self.selectedIndex = -1;
-        self.selectedItem = nil;
         self.buttonStyle.hidden = YES;
     }
     [self resetButtonsFrame];
@@ -217,10 +208,6 @@
             return;
         }
     }
-}
-
-- (NSString *)zk_version {
-    return ZK_Version;
 }
 
 #pragma 私有的
@@ -240,7 +227,7 @@
 }
 
 - (void)fiexButtonWidth {
-    if (ZK_ScreenWidth - self.maxWidth > 20) {
+    if (ZK_ScreenWidth - self.maxWidth > ZK_ItemMargin) {
         CGFloat bigButtonSumWidth = 0;
         int bigButtonCount = 0;
         self.maxWidth = ZK_ItemMargin;
@@ -281,7 +268,7 @@
             self.buttonStyle.frame = CGRectMake(self.maxWidth, self.buttonStyleY, width, self.buttonStyleHeight);
         }
         if (!self.buttonSelected) {
-            [button setTitleColor:self.itemSelectedColor forState:0];
+            [button setTitleColor:self.zk_itemSelectedColor forState:0];
             [self itemClick:button];
         }
         self.maxWidth += width + ZK_ItemMargin;
@@ -295,13 +282,13 @@
     UIButton *buttonItem = [[UIButton alloc] initWithFrame:CGRectMake(self.maxWidth, 0, itemWidth, self.frame.size.height)];
     buttonItem.titleLabel.font = [UIFont systemFontOfSize:ZK_ItemFontSize];
     [buttonItem setTitle:item forState:UIControlStateNormal];
-    [buttonItem setTitleColor:self.itemDefaultColor forState:UIControlStateNormal];
+    [buttonItem setTitleColor:self.zk_itemDefaultColor forState:UIControlStateNormal];
     [buttonItem addTarget:self action:@selector(itemClick:) forControlEvents:UIControlEventTouchUpInside];
     self.maxWidth += itemWidth + ZK_ItemMargin;
     [self.buttonList addObject:buttonItem];
     [self addSubview:buttonItem];
     if (!self.buttonSelected) {
-        [buttonItem setTitleColor:self.itemSelectedColor forState:0];
+        [buttonItem setTitleColor:self.zk_itemSelectedColor forState:0];
         self.buttonStyle.frame = CGRectMake(buttonItem.frame.origin.x, self.buttonStyleY, buttonItem.frame.size.width, self.buttonStyleHeight);
         [self itemClick:buttonItem];
     }
@@ -324,13 +311,13 @@
 - (void)itemClick:(id)sender {
     UIButton *button = sender;
     if (self.buttonSelected != button) {
-        [self.buttonSelected setTitleColor:self.itemDefaultColor forState:0];
-        [button setTitleColor:self.itemSelectedColor forState:0];
+        [self.buttonSelected setTitleColor:self.zk_itemDefaultColor forState:0];
+        [button setTitleColor:self.zk_itemSelectedColor forState:0];
         self.buttonSelected = button;
         if (self.zk_itemClickBlock) {
-            self.selectedIndex = [self indexOfItemsWithItem:button.titleLabel.text];
-            self.selectedItem = button.titleLabel.text;
-            self.zk_itemClickBlock(self.selectedItem, self.selectedIndex);
+            int selectedIndex = [self indexOfItemsWithItem:button.titleLabel.text];
+            NSString *selectedItem = button.titleLabel.text;
+            self.zk_itemClickBlock(selectedItem, selectedIndex);
         }
         [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
@@ -361,7 +348,7 @@
     }
 }
 
-- (NSInteger)indexOfItemsWithItem:(NSString *)item {
+- (int)indexOfItemsWithItem:(NSString *)item {
     for (int i = 0; i < self.allItems.count; i++) {
         if ([item isEqualToString:self.allItems[i]]) {
             return i;
