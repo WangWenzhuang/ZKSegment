@@ -6,6 +6,16 @@
 //  Copyright © 2015年 WangWenzhuang. All rights reserved.
 //
 
+/*
+ *******************************************************
+ *                                                      *
+ * 感谢您的支持，如果下载的代码在使用过程中出现 Bug 或者其他问题   *
+ * 您可以发邮件到1020304029@qq.com 或者到                    *
+ * https://github.com/WangWenzhuang/ZKSegment 提交问题     *
+ *                                                      *
+ *******************************************************
+ */
+
 #import <UIKit/UIKit.h>
 
 /**
