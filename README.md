@@ -27,7 +27,7 @@ ZKSegment 是一个分段选择控件
 ## 快速使用
 
 ### Objective-C:
-1. `#import "ZKSegment.h"`
+`#import "ZKSegment.h"`
 
 ```objc
 _ZKSegment = [ZKSegment
