@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
 [![CocoaPods](https://img.shields.io/badge/pod-v1.0.1-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
 [![platform](https://img.shields.io/badge/platform-iOS-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
-[![platform](https://img.shields.io/badge/contact-1020304029%40q.com-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
+[![platform](https://img.shields.io/badge/contact-1020304029%40qq.com-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
 
 ZKSegment 是一个分段选择控件
 
