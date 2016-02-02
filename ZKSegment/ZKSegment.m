@@ -21,7 +21,7 @@
 #define ZK_UIColorFromRGBAlpha(r, g, b, a) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(a)]
 #define ZK_ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ZK_ItemPadding 8.0f
-#define ZK_Version @"1.0.2"
+#define ZK_Version @"1.0.3"
 
 @interface ZKSegment ()
 @property(nonatomic, strong) UIView *buttonStyle;
@@ -97,7 +97,6 @@
     self.maxWidth = self.zk_itemMargin;
     self.buttonList = [NSMutableArray array];
     self.allItems = [NSMutableArray array];
-    self.bounces = NO;
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
     self.buttonStyle = [[UIView alloc] initWithFrame:CGRectMake(self.zk_itemMargin, self.buttonStyleY, 0, self.buttonStyleHeight)];
