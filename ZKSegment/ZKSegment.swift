@@ -26,7 +26,7 @@ public extension ZKSegment {
                                    itemSelectedColor: UIColor,
                                    itemFont: UIFont?,
                                    itemMargin: CGFloat?,
-                                   items: [String],
+                                   items: [String] = [],
                                    change: ZKItemChange?) -> ZKSegment{
         return ZKSegment(
             frame: frame,
@@ -41,13 +41,13 @@ public extension ZKSegment {
     }
     //MARK: 创建 .rectangle 样式实例
     public static func segmentRectangle(frame: CGRect,
-                                   itemColor: UIColor,
-                                   itemSelectedColor: UIColor,
-                                   itemStyleSelectedColor: UIColor,
-                                   itemFont: UIFont?,
-                                   itemMargin: CGFloat?,
-                                   items: [String],
-                                   change: ZKItemChange?) -> ZKSegment{
+                                        itemColor: UIColor,
+                                        itemSelectedColor: UIColor,
+                                        itemStyleSelectedColor: UIColor,
+                                        itemFont: UIFont?,
+                                        itemMargin: CGFloat?,
+                                        items: [String] = [],
+                                        change: ZKItemChange?) -> ZKSegment{
         return ZKSegment(
             frame: frame,
             style: .rectangle,
@@ -61,12 +61,12 @@ public extension ZKSegment {
     }
     //MARK: 创建 .text 样式实例
     public static func segmentText(frame: CGRect,
-                                        itemColor: UIColor,
-                                        itemSelectedColor: UIColor,
-                                        itemFont: UIFont?,
-                                        itemMargin: CGFloat?,
-                                        items: [String],
-                                        change: ZKItemChange?) -> ZKSegment{
+                                   itemColor: UIColor,
+                                   itemSelectedColor: UIColor,
+                                   itemFont: UIFont?,
+                                   itemMargin: CGFloat?,
+                                   items: [String] = [],
+                                   change: ZKItemChange?) -> ZKSegment{
         return ZKSegment(
             frame: frame,
             style: .text,
@@ -134,14 +134,14 @@ public class ZKSegment: UIScrollView {
     private var items: [String] = []
     
     private init(frame: CGRect,
-         style: Style,
-         itemColor: UIColor,
-         itemSelectedColor: UIColor,
-         itemStyleSelectedColor: UIColor,
-         itemFont: UIFont?,
-         itemMargin: CGFloat?,
-         items: [String],
-         change: ZKItemChange?) {
+                 style: Style,
+                 itemColor: UIColor,
+                 itemSelectedColor: UIColor,
+                 itemStyleSelectedColor: UIColor,
+                 itemFont: UIFont?,
+                 itemMargin: CGFloat?,
+                 items: [String],
+                 change: ZKItemChange?) {
         
         super.init(frame: frame)
         self.style = style
