@@ -1,59 +1,68 @@
+![(logo)](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/logo.png)
+
 # ZKSegment
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
-[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
-[![CocoaPods](https://img.shields.io/badge/pod-v1.0.1-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
-[![platform](https://img.shields.io/badge/platform-iOS-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
-[![platform](https://img.shields.io/badge/contact-1020304029%40qq.com-brightgreen.svg)](https://github.com/WangWenzhuang/ZKSegment)
+![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)
+![build](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![CocoaPods](https://img.shields.io/badge/pod-v2.0-brightgreen.svg)
+![platform](https://img.shields.io/badge/platform-iOS-brightgreen.svg)
 
-ZKSegment 是一个分段选择控件
+ZKSegment 一个分段选择控件
 
-![1](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/1.png)
+![1](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/demo.jpeg)
 
-![2](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/2.png)
+> 最新版本为*2.0*，使用 *Swift* 开发。如果您是*Objective-C*项目，请使用*1.0.1*版本，[请点击](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/objc.md)
 
-![3](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/3.png)
+## 运行环境
+
+* iOS 8.0 +
+* Swift 3.0 +
 
 ## 安装
 
-### 手动安装
-
-拷贝 `ZKSegment/` 目录下的2个文件 `ZKSegment.h` / `ZKSegment.m` 到项目里即可。
-
 ### CocoaPods
 
-```pod 'ZKSegment'```
+你可以使用 [CocoaPods](http://cocoapods.org/) 安装 `ZKSegment`，在你的 `Podfile` 中添加：
+
+```ogdl
+platform :ios, '8.0'
+use_frameworks!
+
+target 'MyApp' do
+    pod 'ZKSegment'
+end
+```
+
+### 手动安装
+
+拖动 `ZKSegment` 文件夹到您的项目
 
 ## 快速使用
 
-### Objective-C:
-`#import "ZKSegment.h"`
+### 导入 `ZKSegment`
 
-```objc
-_ZKSegment = [ZKSegment
-    zk_segmentWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 45)
-                  style:ZKSegmentLineStyle];
-_ZKSegment.zk_itemClickBlock=^(NSString *itemName , NSInteger itemIndex){
-    NSLog(@"click item:%@",itemName);
-    NSLog(@"click itemIndex:%d",itemIndex);
-};
-[_ZKSegment zk_setItems:@[ @"菜单1", @"菜单2" ]];
-
-[self.view addSubview:_ZKSegment];
+```swift
+import ZKSegment
 ```
 
-## 自定义
+### 初始化函数
 
-###属性
+* segmentLine           线形样式
+* segmentRectangle      矩形样式
+* segmentText           纯文本样式
 
-`zk_itemDefaultColor` 			设置每一项文本默认颜色
+### 举个例子
 
-`zk_itemSelectedColor` 			设置每一项文本选中颜色
-
-`zk_itemStyleSelectedColor`		选中项样式颜色
-
-`zk_backgroundColor`			背景色
-
-## 运行环境
-- iOS 7+
-- 支持 armv7/armv7s/arm64
+```swift
+let segment = ZKSegment.segmentLine(
+    frame: CGRect(x: 0, y: 50, width: self.view.frame.size.width, height: 45),
+    itemColor: UIColor(red: 102.0 / 255.0, green: 102.0 / 255.0, blue: 102.0 / 255.0, alpha: 1),
+    itemSelectedColor: UIColor(red: 202.0 / 255.0, green: 51.0 / 255.0, blue: 54.0 / 255.0, alpha: 1),
+    itemFont: UIFont.systemFont(ofSize: 14),
+    itemMargin: 20,
+    items: ["菜单一", "菜单二", "菜单三", "菜单四", "菜单五", "菜单六", "菜单七", "菜单八"],
+    change: { (index, item) in
+        print("segmentLine change index:\(index)")
+    })
+segment.backgroundColor = UIColor(red: 238.0 / 255.0, green: 238.0 / 255.0, blue: 238.0 / 255.0, alpha: 1)
+```
