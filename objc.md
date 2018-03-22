@@ -15,7 +15,7 @@
 platform :ios, '8.0'
 
 target 'MyApp' do
-    pod 'ZKSegment', '1.0.1'
+    pod 'ZKSegment', '1.0.3'
 end
 ```
 
