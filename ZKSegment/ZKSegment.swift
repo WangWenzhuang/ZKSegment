@@ -265,7 +265,7 @@ extension ZKSegment {
         var styleX = x
         var styleWidth = width
         if self.style == .dot {
-            styleWidth = 8
+            styleWidth = 12
             styleX = x + (width - styleWidth) / 2
         }
         return CGRect(

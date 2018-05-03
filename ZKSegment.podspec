@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'ZKSegment'
-  s.version = '2.1'
+  s.version = '2.1.1'
   s.ios.deployment_target = '8.0'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.summary = '一个分段选择控件。'
