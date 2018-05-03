@@ -9,7 +9,7 @@
 
 ZKSegment 一个分段选择控件
 
-![1](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/demo.jpeg)
+![1](https://raw.githubusercontent.com/WangWenzhuang/ZKSegment/master/demo.jpg)
 
 > 如果您是*Objective-C*项目，请使用*1.0.3*版本，[请点击](https://github.com/WangWenzhuang/ZKSegment/blob/master/objc.md)
 
