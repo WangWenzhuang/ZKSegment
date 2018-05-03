@@ -13,6 +13,7 @@ enum ZKSegmentStyle {
     case line
     case rectangle
     case text
+    case dot
 }
 
 typealias Style = ZKSegmentStyle
@@ -73,6 +74,25 @@ public extension ZKSegment {
             itemColor: itemColor,
             itemSelectedColor: itemSelectedColor,
             itemStyleSelectedColor: .clear,
+            itemFont: itemFont,
+            itemMargin: itemMargin,
+            items: items,
+            change: change)
+    }
+    //MARK: 创建 .dot 样式实例
+    public static func segmentDot(frame: CGRect,
+                                   itemColor: UIColor,
+                                   itemSelectedColor: UIColor,
+                                   itemFont: UIFont?,
+                                   itemMargin: CGFloat?,
+                                   items: [String] = [],
+                                   change: ZKItemChange?) -> ZKSegment{
+        return ZKSegment(
+            frame: frame,
+            style: .dot,
+            itemColor: itemColor,
+            itemSelectedColor: itemSelectedColor,
+            itemStyleSelectedColor: itemSelectedColor,
             itemFont: itemFont,
             itemMargin: itemMargin,
             items: items,
@@ -170,6 +190,11 @@ public class ZKSegment: UIScrollView {
         case .text:
             self.itemStyleY = 0
             self.itemStyleHeight = 0
+        case .dot:
+            self.itemStyleY = self.height - 10
+            self.itemStyleHeight = 4
+            self.itemStyle.layer.cornerRadius = 2
+            self.itemStyle.layer.masksToBounds = true
         }
         self.reload(items)
     }
@@ -236,6 +261,21 @@ public extension ZKSegment {
 }
 
 extension ZKSegment {
+    private func itemStyleFrame(_ x: CGFloat, _ width: CGFloat) -> CGRect {
+        var styleX = x
+        var styleWidth = width
+        if self.style == .dot {
+            styleWidth = 8
+            styleX = x + (width - styleWidth) / 2
+        }
+        return CGRect(
+            x: styleX,
+            y: self.itemStyleY,
+            width: styleWidth,
+            height: self.itemStyleHeight
+        )
+    }
+    
     private func createItem(_ item: String) {
         let itemWidth = self.itemWidth(item)
         let button = UIButton(frame: CGRect(x: self.contentX, y: 0, width: itemWidth, height: self.height))
@@ -248,7 +288,7 @@ extension ZKSegment {
         self.addSubview(button)
         if self.buttonSelected == nil {
             button.setTitleColor(self.itemSelectedColor, for: .normal)
-            self.itemStyle.frame = CGRect(x: button.x, y: self.itemStyleY, width: button.width, height: self.itemStyleHeight)
+            self.itemStyle.frame = self.itemStyleFrame(button.x, button.width)
             self.itemClick(button: button)
         }
     }
@@ -273,7 +313,7 @@ extension ZKSegment {
             delay: 0,
             options: UIViewAnimationOptions.curveEaseOut,
             animations: {
-                self.itemStyle.frame = CGRect(x: button.x, y: self.itemStyleY, width: button.width, height: self.itemStyleHeight)
+                self.itemStyle.frame = self.itemStyleFrame(button.x, button.width)
         }, completion: { finished in
             UIView.animate(withDuration: 0.3, animations: {
                 //MARK: 移动到中间
@@ -299,7 +339,8 @@ extension ZKSegment {
         let itemWidth = item.size(self.itemFont).width
         switch self.style {
         case .line,
-             .text:
+             .text,
+             .dot:
             return itemWidth
         case .rectangle:
             return itemWidth + self.itemMargin * 2
@@ -333,7 +374,7 @@ extension ZKSegment {
                     self.contentX += (button.width + self.itemMargin)
                 }
                 if button == self.buttonSelected {
-                    self.itemStyle.frame = CGRect(x: button.x, y: self.itemStyleY, width: button.width, height: self.itemStyleHeight)
+                    self.itemStyle.frame = self.itemStyleFrame(button.x, button.width)
                 }
             })
             self.contentSize = CGSize(width: self.contentX, height: -4)
@@ -349,7 +390,7 @@ extension ZKSegment {
             let button = self.buttons[index]
             button.frame = CGRect(x: self.contentX, y: 0, width: itemWidth, height: self.height)
             if button == self.buttonSelected {
-                self.itemStyle.frame = CGRect(x: self.contentX, y: self.itemStyleY, width: itemWidth, height: self.itemStyleHeight)
+                self.itemStyle.frame = self.itemStyleFrame(self.contentX, itemWidth)
             }
             if self.buttonSelected == nil {
                 button.setTitleColor(self.itemSelectedColor, for: .normal)
