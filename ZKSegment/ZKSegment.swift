@@ -220,7 +220,7 @@ public extension ZKSegment {
     }
     //MARK: 根据索引选中
     public func select(_ index: Int) {
-        if index > 0 {
+        if index >= 0 {
             self.itemClick(button: self.buttons[index])
         }
     }
