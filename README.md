@@ -3,8 +3,7 @@
 # ZKSegment
 
 ![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)
-![build](https://www.travis-ci.org/WangWenzhuang/ZKSegment.svg?branch=master)
-![CocoaPods](https://img.shields.io/badge/pod-v2.1.2-brightgreen.svg)
+![CocoaPods](https://img.shields.io/badge/pod-v3.0-brightgreen.svg)
 ![platform](https://img.shields.io/badge/platform-iOS-brightgreen.svg)
 
 ZKSegment 一个分段选择控件
@@ -15,8 +14,8 @@ ZKSegment 一个分段选择控件
 
 ## 运行环境
 
-* iOS 8.0 +
-* Swift 3.0 +
+* iOS 10.0 +
+* Swift 4.2 +
 
 ## 安装
 

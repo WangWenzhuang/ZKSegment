@@ -311,7 +311,7 @@ extension ZKSegment {
         UIView.animate(
             withDuration: 0.3,
             delay: 0,
-            options: UIViewAnimationOptions.curveEaseOut,
+            options: UIView.AnimationOptions.curveEaseOut,
             animations: {
                 self.itemStyle.frame = self.itemStyleFrame(button.x, button.width)
         }, completion: { finished in
@@ -404,7 +404,7 @@ extension ZKSegment {
 
 extension String {
     func size(_ font: UIFont) -> CGSize {
-        let attribute = [ NSAttributedStringKey.font: font ]
+        let attribute = [ NSAttributedString.Key.font: font ]
         let conten = NSString(string: self)
         return conten.boundingRect(
             with: CGSize(width: CGFloat(MAXFLOAT), height: CGFloat(MAXFLOAT)),
