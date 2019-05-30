@@ -22,7 +22,7 @@ public typealias ZKItemChange = ((_ index: Int, _ text: String) -> Void)
 
 public extension ZKSegment {
     //MARK: 创建 .line 样式实例
-    public static func segmentLine(frame: CGRect,
+    static func segmentLine(frame: CGRect,
                                    itemColor: UIColor,
                                    itemSelectedColor: UIColor,
                                    itemFont: UIFont?,
@@ -41,7 +41,7 @@ public extension ZKSegment {
             change: change)
     }
     //MARK: 创建 .rectangle 样式实例
-    public static func segmentRectangle(frame: CGRect,
+    static func segmentRectangle(frame: CGRect,
                                         itemColor: UIColor,
                                         itemSelectedColor: UIColor,
                                         itemStyleSelectedColor: UIColor,
@@ -61,7 +61,7 @@ public extension ZKSegment {
             change: change)
     }
     //MARK: 创建 .text 样式实例
-    public static func segmentText(frame: CGRect,
+    static func segmentText(frame: CGRect,
                                    itemColor: UIColor,
                                    itemSelectedColor: UIColor,
                                    itemFont: UIFont?,
@@ -80,7 +80,7 @@ public extension ZKSegment {
             change: change)
     }
     //MARK: 创建 .dot 样式实例
-    public static func segmentDot(frame: CGRect,
+    static func segmentDot(frame: CGRect,
                                   itemColor: UIColor,
                                   itemSelectedColor: UIColor,
                                   itemFont: UIFont?,
@@ -105,7 +105,7 @@ public class ZKSegment: UIScrollView {
     public var selectedIndex: Int? {
         get {
             if self.buttonSelected != nil {
-                if let index = self.items.index(where: { $0 == self.buttonSelected?.titleLabel?.text }) {
+                if let index = self.items.firstIndex(where: { $0 == self.buttonSelected?.titleLabel?.text }) {
                     return index
                 }
             }
@@ -206,7 +206,7 @@ public class ZKSegment: UIScrollView {
 
 public extension ZKSegment {
     //MARK: 重新加载
-    public func reload(_ items: [String]) {
+    func reload(_ items: [String]) {
         self.items = items
         self.buttons.removeAll()
         self.subviews.forEach({ $0.removeFromSuperview() })
@@ -219,13 +219,13 @@ public extension ZKSegment {
         self.fiexItems()
     }
     //MARK: 根据索引选中
-    public func select(_ index: Int) {
+    func select(_ index: Int) {
         if index >= 0 {
             self.itemClick(button: self.buttons[index])
         }
     }
     //MARK: 添加一项
-    public func add(_ item: String, isSelected: Bool = false) {
+    func add(_ item: String, isSelected: Bool = false) {
         if self.itemStyle.isHidden {
             self.itemStyle.isHidden = false
         }
@@ -235,7 +235,7 @@ public extension ZKSegment {
         self.fiexItems()
     }
     //MARK: 移除一项
-    public func remove(_ index: Int) {
+    func remove(_ index: Int) {
         if index < 0 || index > self.items.count - 1 {
             print("ZKSegment ->>>>>> error: remove 方法索引不对")
             return
